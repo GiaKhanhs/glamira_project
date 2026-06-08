@@ -1,0 +1,8 @@
+.venv/
+
+data/
+export_parts/
+keys/
+
+.env
+.python-version
