@@ -30,7 +30,8 @@ The project ingests raw MongoDB event data, processes it through Google Cloud se
 
 ---
 
-![Full explain here](/DWH_architecture.md)
+## Data Model
+![Full here](DWH_architecture.md)
 
 ### Fact Tables
 
