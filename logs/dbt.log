@@ -1,0 +1,182 @@
+[0m14:22:33.699038 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1043945c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054e77d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054e7500>]}
+
+
+============================== 14:22:33.702442 | 4a72ac3c-17fd-4e6b-926e-77554e6124e4 ==============================
+[0m14:22:33.702442 [info ] [MainThread]: Running with dbt=1.11.11
+[0m14:22:33.702823 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'debug': 'False', 'quiet': 'False', 'profiles_dir': '/Users/giakhanh/.dbt', 'write_json': 'True', 'log_cache_events': 'False', 'target_path': 'None', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'invocation_command': 'dbt init glamira', 'no_print': 'None', 'printer_width': '80', 'partial_parse': 'True', 'static_parser': 'True', 'introspect': 'True', 'warn_error': 'None', 'log_path': 'logs', 'use_colors': 'True', 'fail_fast': 'False', 'empty': 'None'}
+[0m14:22:33.713024 [debug] [MainThread]: Starter project path: /Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m14:22:33.717853 [info ] [MainThread]: 
+Your new dbt project "glamira" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:22:33.718145 [info ] [MainThread]: Setting up your profile.
+[0m14:25:38.097740 [error] [MainThread]: Encountered an error:
+
+[0m14:25:38.109020 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/cli/main.py", line 488, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 113, in generate_target_from_input
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/click/termui.py", line 218, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/click/termui.py", line 201, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m14:25:38.141082 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 184.49513, "process_in_blocks": "0", "process_kernel_time": 0.227353, "process_mem_max_rss": "203407360", "process_out_blocks": "0", "process_user_time": 1.284595}
+[0m14:25:38.142569 [debug] [MainThread]: Command `dbt init` failed at 14:25:38.142475 after 184.50 seconds
+[0m14:25:38.143163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100b0ecf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112bcefc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1052dd7f0>]}
+[0m14:25:38.143604 [debug] [MainThread]: Flushing usage events
+[0m14:25:39.257054 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:25:42.325768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107034c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ecf890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ecf5f0>]}
+
+
+============================== 14:25:42.329018 | cac285c7-f086-4b24-ace3-86132c19bff2 ==============================
+[0m14:25:42.329018 [info ] [MainThread]: Running with dbt=1.11.11
+[0m14:25:42.329396 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'profiles_dir': '/Users/giakhanh/.dbt', 'debug': 'False', 'static_parser': 'True', 'introspect': 'True', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'no_print': 'None', 'warn_error': 'None', 'partial_parse': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'log_path': 'logs', 'log_format': 'default', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init glamira', 'target_path': 'None', 'fail_fast': 'False'}
+[0m14:25:42.339190 [info ] [MainThread]: A project called glamira already exists here.
+[0m14:25:42.340672 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.06505925, "process_in_blocks": "0", "process_kernel_time": 0.127092, "process_mem_max_rss": "110510080", "process_out_blocks": "0", "process_user_time": 0.850647}
+[0m14:25:42.341037 [debug] [MainThread]: Command `dbt init` succeeded at 14:25:42.340970 after 0.07 seconds
+[0m14:25:42.341279 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1088b5a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f271a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f0a4e0>]}
+[0m14:25:42.341506 [debug] [MainThread]: Flushing usage events
+[0m14:25:43.314538 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:26:24.614111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105304050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105587890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1055875f0>]}
+
+
+============================== 14:26:24.617370 | 02a77cc5-40fb-4ddd-9263-02ee5bd4ac5e ==============================
+[0m14:26:24.617370 [info ] [MainThread]: Running with dbt=1.11.11
+[0m14:26:24.617755 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'profiles_dir': '/Users/giakhanh/.dbt', 'static_parser': 'True', 'empty': 'None', 'log_format': 'default', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'no_print': 'None', 'invocation_command': 'dbt init glamira', 'indirect_selection': 'eager', 'log_path': 'logs', 'printer_width': '80', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'debug': 'False', 'quiet': 'False', 'target_path': 'None', 'introspect': 'True', 'cache_selected_only': 'False', 'version_check': 'True', 'use_colors': 'True'}
+[0m14:26:24.629742 [debug] [MainThread]: Starter project path: /Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m14:26:24.634212 [info ] [MainThread]: 
+Your new dbt project "glamira" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:26:24.634679 [info ] [MainThread]: Setting up your profile.
+[0m14:29:52.383968 [info ] [MainThread]: Profile glamira written to /Users/giakhanh/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m14:29:52.391238 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 207.8128, "process_in_blocks": "0", "process_kernel_time": 0.283243, "process_mem_max_rss": "203522048", "process_out_blocks": "0", "process_user_time": 1.295129}
+[0m14:29:52.392613 [debug] [MainThread]: Command `dbt init` succeeded at 14:29:52.392486 after 207.81 seconds
+[0m14:29:52.393214 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100d02cf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11dff17f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11e0fbb90>]}
+[0m14:29:52.393712 [debug] [MainThread]: Flushing usage events
+[0m14:29:53.477360 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:31:37.029896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062b4710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10740b830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10740b560>]}
+
+
+============================== 14:31:37.033139 | e4c86f9e-fefc-49fe-a9b2-dad996254fcd ==============================
+[0m14:31:37.033139 [info ] [MainThread]: Running with dbt=1.11.11
+[0m14:31:37.033525 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'no_print': 'None', 'introspect': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'use_colors': 'True', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'quiet': 'False', 'profiles_dir': '/Users/giakhanh/.dbt', 'partial_parse': 'True', 'log_path': 'logs', 'empty': 'None', 'use_experimental_parser': 'False', 'static_parser': 'True', 'target_path': 'None', 'fail_fast': 'False', 'printer_width': '80', 'invocation_command': 'dbt init glamira', 'debug': 'False', 'log_cache_events': 'False', 'version_check': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:31:37.044100 [debug] [MainThread]: Starter project path: /Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m14:31:37.048667 [info ] [MainThread]: 
+Your new dbt project "glamira" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:31:37.048969 [info ] [MainThread]: Setting up your profile.
+[0m14:34:38.291053 [info ] [MainThread]: Profile glamira written to /Users/giakhanh/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m14:34:38.298432 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 181.31464, "process_in_blocks": "0", "process_kernel_time": 0.259684, "process_mem_max_rss": "202063872", "process_out_blocks": "0", "process_user_time": 1.263734}
+[0m14:34:38.299380 [debug] [MainThread]: Command `dbt init` succeeded at 14:34:38.299259 after 181.32 seconds
+[0m14:34:38.299846 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107022c00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1101dd880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114a25cd0>]}
+[0m14:34:38.300285 [debug] [MainThread]: Flushing usage events
+[0m14:34:40.403124 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:34:50.859185 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c3b0e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1163c72f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1163c7830>]}
+
+
+============================== 14:34:50.862680 | b0c1f435-bf9a-48de-a6d5-3dd9690ee853 ==============================
+[0m14:34:50.862680 [info ] [MainThread]: Running with dbt=1.11.11
+[0m14:34:50.863066 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'version_check': 'True', 'indirect_selection': 'eager', 'introspect': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'warn_error': 'None', 'quiet': 'False', 'write_json': 'True', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/giakhanh/.dbt', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'target_path': 'None', 'log_cache_events': 'False', 'printer_width': '80', 'fail_fast': 'False', 'log_path': 'logs', 'static_parser': 'True'}
+[0m14:34:50.874451 [info ] [MainThread]: dbt version: 1.11.11
+[0m14:34:50.874784 [info ] [MainThread]: python version: 3.12.3
+[0m14:34:50.874965 [info ] [MainThread]: python path: /Users/giakhanh/Desktop/AIDE/Projects/glamira_project/.venv/bin/python
+[0m14:34:50.875132 [info ] [MainThread]: os info: macOS-15.7.7-arm64-arm-64bit
+[0m14:34:50.878235 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.sqlite'
+[0m14:34:50.879436 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.sqlite'
+[0m14:34:51.593177 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m14:34:51.593749 [info ] [MainThread]: Using profiles dir at /Users/giakhanh/.dbt
+[0m14:34:51.593964 [info ] [MainThread]: Using profiles.yml file at /Users/giakhanh/.dbt/profiles.yml
+[0m14:34:51.594153 [info ] [MainThread]: Using dbt_project.yml file at /Users/giakhanh/Desktop/AIDE/Projects/glamira_project/dbt_project.yml
+[0m14:34:51.594320 [info ] [MainThread]: Configuration:
+[0m14:34:51.594472 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m14:34:51.594624 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:34:51.594771 [info ] [MainThread]: Required dependencies:
+[0m14:34:51.594982 [debug] [MainThread]: Executing "git --help"
+[0m14:34:51.614796 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:34:51.615579 [debug] [MainThread]: STDERR: "b''"
+[0m14:34:51.615882 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:34:51.616101 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m14:34:51.616438 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m14:34:51.616618 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "company_analytics", target "dev" invalid: Runtime Error
+    Could not find adapter type sqlite!
+
+Runtime Error
+  Credentials in profile "demo", target "dev" invalid: Runtime Error
+    Could not find adapter type sqlite!
+
+Runtime Error
+  Credentials in profile "home_credit_risk", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+
+[0m14:34:51.616789 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </Users/giakhanh/Desktop/AIDE/Projects/glamira_project/dbt_project.yml> not found
+
+[0m14:34:51.620310 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.81097573, "process_in_blocks": "0", "process_kernel_time": 0.217323, "process_mem_max_rss": "208699392", "process_out_blocks": "0", "process_user_time": 1.363479}
+[0m14:34:51.621263 [debug] [MainThread]: Command `dbt debug` failed at 14:34:51.621162 after 0.81 seconds
+[0m14:34:51.621876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127d15bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127ae6240>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12793cfb0>]}
+[0m14:34:51.622226 [debug] [MainThread]: Flushing usage events
+[0m14:34:52.646333 [debug] [MainThread]: An error was encountered while trying to flush usage events
