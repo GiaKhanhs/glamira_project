@@ -1,0 +1,98 @@
+version: 2
+
+models:
+  - name: stg_summary
+    description: Cleaned and standardized event tracking data from summary_raw source.
+
+    columns:
+
+      - name: event_id
+        description: Unique event identifier from MongoDB.
+        tests:
+          - not_null
+          - unique
+
+      - name: event_timestamp
+        description: Event timestamp converted from unix timestamp.
+        tests:
+          - not_null
+
+      - name: event_date
+        description: Event date derived from event timestamp.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Customer identifier from source system.
+
+      - name: product_id
+        description: Product identifier.
+
+      - name: viewing_product_id
+        description: Viewed product identifier.
+
+      - name: recommendation_product_id
+        description: Recommended product identifier.
+
+      - name: category_id
+        description: Product category identifier.
+
+      - name: store_id
+        description: Store identifier.
+
+      - name: product_price
+        description: Product price.
+
+      - name: option_price
+        description: Option price.
+
+      - name: currency_code
+        description: Currency code.
+
+      - name: is_paypal
+        description: Indicates whether PayPal was used.
+
+      - name: show_recommendation
+        description: Indicates whether recommendation widget was displayed.
+
+      - name: device_id
+        description: Device identifier.
+
+      - name: email_address
+        description: Customer email address (PII).
+
+      - name: ip
+        description: User IP address (PII).
+
+      - name: user_agent
+        description: User browser and device information.
+
+      - name: resolution
+        description: Screen resolution.
+
+      - name: current_url
+        description: Current page URL.
+
+      - name: referrer_url
+        description: Referrer URL.
+
+      - name: utm_source
+        description: Marketing source.
+
+      - name: utm_medium
+        description: Marketing medium.
+
+      - name: key_search
+        description: Search keyword.
+
+      - name: option_json
+        description: Raw option JSON payload.
+
+      - name: recommendation
+        description: Recommendation information.
+
+      - name: recommendation_clicked_position
+        description: Recommendation click position.
+
+      - name: recommendation_product_position
+        description: Recommended product position.

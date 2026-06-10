@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    database: glamiraproject-498808
+    schema: raw
+
+    tables:
+      - name: summary_raw
+        description: Raw event tracking data loaded from MongoDB summary collection.
