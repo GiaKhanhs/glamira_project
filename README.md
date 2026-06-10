@@ -12,18 +12,7 @@ The project ingests raw MongoDB event data, processes it through Google Cloud se
 
 ### Data Flow
 
-```text
-MongoDB
-    │
-    ▼
-Google Cloud Storage
-    │
-    ▼
-BigQuery
-    │
-    ▼
-dbt
-```
+![](/images/Flow.drawio.png)
 
 ---
 
@@ -35,7 +24,7 @@ dbt
 | Data Lake       | Google Cloud Storage               |
 | Data Warehouse  | BigQuery                           |
 | Transformation  | dbt                                |
-| Data Modeling   | Star Schema                        |
+| Data Modeling   | Fact Constellation Schema                        |
 | Data Governance | Policy Tags + Dynamic Data Masking |
 | Cloud Platform  | Google Cloud Platform              |
 
@@ -133,20 +122,20 @@ Implemented dbt tests:
 
 ## Project Assets
 
-### Architecture Diagram
+### Flow Diagram
 
-```text
-docs/architecture.png
+```mermaid
+flowchart LR
+    A[MongoDB] --> B[Google Cloud Storage]
+    B --> C[BigQuery Raw Layer]
+    C --> D[dbt Staging]
+    D --> E[dbt Intermediate]
+    E --> F[dbt Mart Layer]
+    F --> G[Data Governance]
 ```
 
-### Star Schema Diagram
+### Fact Constellation Schema Diagram
 
-```text
-docs/star_schema.png
-```
+![](/images/DWH.png)
 
-### Data Governance Demo
 
-```text
-docs/governance.png
-```
