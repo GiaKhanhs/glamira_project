@@ -120,21 +120,7 @@ Implemented dbt tests:
 
 ---
 
-## Project Assets
-
-### Flow Diagram
-
-```mermaid
-flowchart LR
-    A[MongoDB] --> B[Google Cloud Storage]
-    B --> C[BigQuery Raw Layer]
-    C --> D[dbt Staging]
-    D --> E[dbt Intermediate]
-    E --> F[dbt Mart Layer]
-    F --> G[Data Governance]
-```
-
-### Fact Constellation Schema Diagram
+## Fact Constellation Schema Diagram
 
 ![](/images/DWH.png)
 
