@@ -1,268 +1,152 @@
-# Glamira Data Engineering Project Tracker
+# Glamira E-Commerce Analytics Platform
 
-## Phase 1 - Data Ingestion
+## Overview
 
-### MongoDB → GCS
+An end-to-end Data Engineering project that builds a modern analytics platform for e-commerce clickstream and transaction data.
 
-* [x] Setup MongoDB connection
-* [x] Create export script
-* [x] Implement checkpoint mechanism
-* [x] Export 41M+ records
-* [x] Upload partition files to GCS
-* [x] Add logging and monitoring
-* [x] Validate exported file count
-
-### GCS → BigQuery
-
-* [x] Create BigQuery dataset
-* [x] Generate schema_fields.json
-* [x] Create load script
-* [x] Load all partitions to BigQuery
-* [x] Validate row count
-* [x] Investigate duplicate records
-* [x] Create final deduplicated table
+The project ingests raw MongoDB event data, processes it through Google Cloud services and dbt transformations, and implements enterprise-grade data governance controls.
 
 ---
 
-# Phase 2 - Data Warehouse Modeling
+## Architecture
 
-## dbt Project Setup
-
-* [x] Install dbt-bigquery
-* [x] Initialize dbt project
-* [x] Configure profiles.yml
-* [x] Configure dbt_project.yml
-* [x] Validate connection using dbt debug
-
----
-
-## Staging Layer
-
-### Source Definition
-
-* [x] Create models/staging/sources.yml
-* [x] Add source tests
-
-### stg_summary
-
-* [x] Rename columns
-* [x] Standardize naming convention
-* [x] Cast data types
-* [x] Remove duplicate events
-* [x] Validate row count
-
-### Data Quality Tests
-
-* [x] event_id not_null
-* [x] event_id unique
-* [x] event_timestamp not_null
-* [x] accepted values for is_paypal
-* [x] accepted values for show_recommendation
-
----
-
-# Phase 3 - Core Layer
-
-## Dimension Tables
-
-### dim_date
-
-* [ ] Create date dimension
-* [ ] Generate date_key
-* [ ] Add calendar attributes
-
-Columns:
-
-* [ ] date_key
-* [ ] event_date
-* [ ] year
-* [ ] quarter
-* [ ] month
-* [ ] week_of_year
-* [ ] day
-* [ ] day_of_week
-
----
-
-### dim_customer
-
-* [ ] Create customer dimension
-
-Columns:
-
-* [ ] customer_key
-* [ ] customer_id
-* [ ] email_address
-
----
-
-### dim_product
-
-* [ ] Create product dimension
-
-Columns:
-
-* [ ] product_key
-* [ ] product_id
-* [ ] category_id
-* [ ] product_price
-* [ ] currency_code
-* [ ] alloy_value_id
-* [ ] diamond_value_id
-* [ ] finish_value_id
-* [ ] stone_value_id
-* [ ] pearl_color_value_id
-* [ ] shape_diamond_value_id
-
----
-
-### dim_device
-
-* [ ] Create device dimension
-
-Columns:
-
-* [ ] device_key
-* [ ] device_id
-* [ ] ip
-* [ ] user_agent
-* [ ] resolution
-
----
-
-### dim_traffic_source
-
-* [ ] Create traffic source dimension
-
-Columns:
-
-* [ ] traffic_source_key
-* [ ] utm_source
-* [ ] utm_medium
-* [ ] referrer_url
-* [ ] current_url
-
----
-
-## Fact Table
-
-### fact_user_event_detail
-
-Grain:
+### Data Flow
 
 ```text
-1 row = 1 event
+MongoDB
+    │
+    ▼
+Google Cloud Storage
+    │
+    ▼
+BigQuery
+    │
+    ▼
+dbt
 ```
 
-Tasks:
+---
 
-* [ ] Generate surrogate keys
-* [ ] Join dimensions
-* [ ] Create event fact
+## Technology Stack
 
-Foreign Keys:
-
-* [ ] date_key
-* [ ] customer_key
-* [ ] product_key
-* [ ] device_key
-* [ ] traffic_source_key
-
-Measures:
-
-* [ ] product_price
-* [ ] option_price
-
-Flags:
-
-* [ ] is_paypal
-* [ ] show_recommendation
+| Component       | Technology                         |
+| --------------- | ---------------------------------- |
+| Source System   | MongoDB                            |
+| Data Lake       | Google Cloud Storage               |
+| Data Warehouse  | BigQuery                           |
+| Transformation  | dbt                                |
+| Data Modeling   | Star Schema                        |
+| Data Governance | Policy Tags + Dynamic Data Masking |
+| Cloud Platform  | Google Cloud Platform              |
 
 ---
 
-# Phase 4 - Security & Governance
+## Data Model
 
-## PII Assessment
+### Fact Tables
 
-* [ ] Identify PII columns
-* [ ] Review email_address usage
-* [ ] Review ip usage
+#### fact_sales_order_detail
 
-## BigQuery Policy Tags
+Business grain:
+One row per purchased product within an order.
 
-* [ ] Create taxonomy
-* [ ] Create PII tag
-* [ ] Apply tag to email_address
-* [ ] Apply tag to ip
-* [ ] Configure Dynamic Data Masking
-* [ ] Test masking behavior
+Metrics:
 
----
+* sales_amount
+* order_qty
+* unit_price
 
-# Phase 5 - Data Mart
+#### fact_user_event_detail
 
-## mart_product_performance
+Business grain:
+One row per user event.
 
-* [ ] Product views
-* [ ] Product revenue
-* [ ] Recommendation CTR
+Metrics:
 
----
-
-## mart_traffic_performance
-
-* [ ] Sessions
-* [ ] Users
-* [ ] Conversions
-* [ ] Conversion rate
+* user activity
+* website interactions
+* conversion tracking
 
 ---
 
-## mart_daily_funnel
+### Dimension Tables
 
-* [ ] Daily visitors
-* [ ] Product views
-* [ ] Add to cart
-* [ ] Checkout
-* [ ] Checkout success
-* [ ] Conversion rate
-
----
-
-# Phase 6 - Visualization
-
-## Looker Studio
-
-* [ ] Connect BigQuery
-* [ ] Create product dashboard
-* [ ] Create traffic dashboard
-* [ ] Create funnel dashboard
+* dim_customer
+* dim_product
+* dim_device
+* dim_traffic_source
+* dim_date
 
 ---
 
-# Phase 7 - Documentation
+## Data Governance
 
-## Technical Documentation
+### Sensitive Data Classification
 
-* [ ] Architecture diagram
-* [ ] Data model diagram
-* [ ] dbt lineage screenshot
-* [ ] Data dictionary
+| Column        | Policy Tag |
+| ------------- | ---------- |
+| email_address | PII_EMAIL  |
+| ip            | PII_IP     |
 
-## Repository
+### Security Controls
 
-* [ ] Clean code
-* [ ] README
-* [ ] Setup guide
-* [ ] Screenshots
+Implemented:
+
+* Policy Tags
+* Fine-Grained Access Control
+* Dynamic Data Masking
+* Role-Based Access Control (RBAC)
+
+### Access Model
+
+| User Type         | Access        |
+| ----------------- | ------------- |
+| Owner             | Raw Data      |
+| Masked Reader     | Masked Data   |
+| Unauthorized User | Access Denied |
 
 ---
 
-# Stretch Goals
+## Data Quality
 
-* [ ] Incremental dbt models
-* [ ] Cloud Run ingestion
-* [ ] Data quality monitoring
-* [ ] CI/CD pipeline
-* [ ] Partitioned fact table
-* [ ] Clustered fact table
+Implemented dbt tests:
+
+* not_null
+* unique
+* primary key validation
+* referential integrity
+* data consistency checks
+
+---
+
+## Key Features
+
+* End-to-end ELT pipeline
+* Star schema dimensional modeling
+* dbt transformations
+* Data quality testing
+* Dynamic Data Masking
+* Role-based access control
+* E-commerce behavioral analytics
+
+---
+
+## Project Assets
+
+### Architecture Diagram
+
+```text
+docs/architecture.png
+```
+
+### Star Schema Diagram
+
+```text
+docs/star_schema.png
+```
+
+### Data Governance Demo
+
+```text
+docs/governance.png
+```
