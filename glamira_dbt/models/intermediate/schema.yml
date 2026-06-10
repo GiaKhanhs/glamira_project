@@ -1,0 +1,50 @@
+version: 2
+
+models:
+
+  - name: int_summary_events
+    description: Business-ready event table.
+
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+      - name: event_timestamp
+        tests:
+          - not_null
+
+      - name: event_date
+        tests:
+          - not_null
+
+  - name: int_customers
+    description: Customer entity.
+
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_products
+    description: Product entity.
+
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_devices
+    description: Device entity.
+
+    columns:
+      - name: device_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_traffic_sources
+    description: Traffic source entity.
