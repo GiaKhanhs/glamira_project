@@ -1,0 +1,142 @@
+version: 2
+
+models:
+
+  - name: dim_date
+    description: Date dimension.
+
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+          - unique
+
+      - name: event_date
+        tests:
+          - not_null
+
+  - name: dim_customer
+    description: Customer dimension.
+
+    columns:
+      - name: customer_key
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+
+  - name: dim_product
+    description: Product dimension.
+
+    columns:
+      - name: product_key
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: dim_device
+    description: Device dimension.
+
+    columns:
+      - name: device_key
+        tests:
+          - not_null
+          - unique
+
+      - name: device_id
+        tests:
+          - not_null
+
+  - name: dim_traffic_source
+    description: Traffic source dimension.
+
+    columns:
+      - name: traffic_source_key
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_user_event_detail
+    description: Event fact table.
+
+    columns:
+
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+
+      - name: product_key
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+
+      - name: device_key
+        tests:
+          - relationships:
+              to: ref('dim_device')
+              field: device_key
+
+      - name: traffic_source_key
+        tests:
+          - relationships:
+              to: ref('dim_traffic_source')
+              field: traffic_source_key
+
+  - name: fact_sales_order_detail
+    description: Order item fact table created from checkout_success events.
+
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+
+      - name: order_id
+        tests:
+          - not_null
+
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+
+      - name: product_key
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+
+      - name: customer_key
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+
+      - name: order_qty
+        tests:
+          - not_null
+
+      - name: sales_amount
